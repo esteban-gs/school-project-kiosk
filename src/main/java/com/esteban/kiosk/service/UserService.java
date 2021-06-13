@@ -17,10 +17,10 @@ public class UserService {
     }
 
     private void initUserMemDB() {
-        userMemDB.add(new User(1,"peter"));
-        userMemDB.add(new User(2,"john"));
-        userMemDB.add(new User(3,"Muhammad"));
-        userMemDB.add(new User(4,"Maria"));
+        userMemDB.add(new User(1, "peter@test.com", "peter", "parker"));
+        userMemDB.add(new User(2, "john@test.com", "john", "Garcia"));
+        userMemDB.add(new User(3, "muhammad@test.com", "Muhammad", "Smith"));
+        userMemDB.add(new User(4, "maria@test.com", "Maria", "Jane"));
     }
     public List<User> getUsers() {
         return userMemDB;
@@ -35,7 +35,7 @@ public class UserService {
                 .filter(u -> u.getId() == user.getId())
                 .findFirst().orElse(null);
         LOGGER.info(String.format("record to Update: %1$s", dbRecord));
-        dbRecord.setName(user.getName());
+        dbRecord.setFirstName(user.getFirstName());
         var recordIndex = userMemDB.indexOf(dbRecord);
         var result = userMemDB.set(recordIndex, user);
 

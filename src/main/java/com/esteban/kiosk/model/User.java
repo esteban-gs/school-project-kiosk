@@ -1,65 +1,78 @@
 package com.esteban.kiosk.model;
-import java.util.Objects;
+import com.esteban.kiosk.model.shared.BaseModel;
 
-public class User {
+import java.util.List;
 
-    public User() {
+public class User extends BaseModel {
+    public User(Integer id, String email, String firstName, String lastName) {
+        super(id);
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public User(Integer id, String name) {
-        this.id = id;
-        this.name = name;
+    public User(Integer id, String email, String firstName, String lastName, String mobile, boolean emailConfirmed, List<Address> addressList) {
+        super(id);
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobile = mobile;
+        this.emailConfirmed = emailConfirmed;
+        this.addressList = addressList;
     }
 
-    public Integer getId() {
-        return this.id;
+    private String email;
+    private String firstName;
+    private String lastName;
+    private String mobile;
+    private boolean emailConfirmed;
+    private List<Address> addressList;
+
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getName() {
-        return this.name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public User id(Integer id) {
-        setId(id);
-        return this;
+    public String getLastName() {
+        return lastName;
     }
 
-    public User name(String name) {
-        setName(name);
-        return this;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof User)) {
-            return false;
-        }
-        User user = (User)o;
-        return Objects.equals(id, user.id) && Objects.equals(name, user.name);
+    public String getMobile() {
+        return mobile;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                " id='" + getId() + "'" +
-                ", name='" + getName() + "'" +
-                "}";
+    public boolean isEmailConfirmed() {
+        return emailConfirmed;
     }
-    private Integer id;
-    private String name;
+
+    public void setEmailConfirmed(boolean emailConfirmed) {
+        this.emailConfirmed = emailConfirmed;
+    }
+
+    public List<Address> getAddressList() {
+        return addressList;
+    }
+
+    public void setAddressList(List<Address> addressList) {
+        this.addressList = addressList;
+    }
 }
