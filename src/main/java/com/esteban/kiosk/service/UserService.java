@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -26,16 +27,24 @@ public class UserService {
         return userMemDB;
     }
 
-    public static User getUserById(int id) {
-        return userMemDB.get(id);
+    public static User getUserById(long id) {
+        User dbRecord = userMemDB.stream()
+                .filter(u -> u.getId() == id)
+                .findFirst().orElse(null);
+        LOGGER.info(String.format("record %2$s located: %1$s", dbRecord, id));
+        return userMemDB.get(userMemDB.indexOf(dbRecord));
+    }
+
+    public static User getFirstUser() {
+        userMemDB.sort(Comparator.comparing(User::getId));
+        var firstRecordInSortedList = userMemDB.get(0);
+        LOGGER.info(String.format("getFirstUser: %1$s", firstRecordInSortedList, userMemDB));
+        return firstRecordInSortedList;
     }
 
     public static void editUser(User user) {
-        var dbRecord = userMemDB.stream()
-                .filter(u -> u.getId() == user.getId())
-                .findFirst().orElse(null);
+        var dbRecord = getUserById(user.getId());
         LOGGER.info(String.format("record to Update: %1$s", dbRecord));
-        dbRecord.setFirstName(user.getFirstName());
         var recordIndex = userMemDB.indexOf(dbRecord);
         var result = userMemDB.set(recordIndex, user);
 
