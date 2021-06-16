@@ -2,35 +2,35 @@ package com.esteban.kiosk.service;
 
 import com.esteban.kiosk.KioskApplication;
 import com.esteban.kiosk.model.User;
+import com.github.javafaker.Faker;
+
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class UserService {
     private static final Logger LOGGER= LoggerFactory.getLogger(KioskApplication.class);
-    List<User> userMemDB = new ArrayList<User>();
+    public static List<User> userMemDB = new ArrayList<User>();
+    static Faker faker = new Faker(new Locale("en-US"));
 
-    public UserService() {
-        this.initUserMemDB();
+    public static void initUserMemDB() {
+        // Seed with faker service
+        for(var i = 0; i <= 10; i++) {
+            userMemDB.add(new User(Helper.generateUniqueId(), faker.bothify("????##@gmail.com"), faker.name().firstName(), faker.name().lastName()));
+        }
     }
-
-    private void initUserMemDB() {
-        userMemDB.add(new User(1, "peter@test.com", "peter", "parker"));
-        userMemDB.add(new User(2, "john@test.com", "john", "Garcia"));
-        userMemDB.add(new User(3, "muhammad@test.com", "Muhammad", "Smith"));
-        userMemDB.add(new User(4, "maria@test.com", "Maria", "Jane"));
-    }
-    public List<User> getUsers() {
+    public static List<User> getUsers() {
         return userMemDB;
     }
 
-    public User getUserById(int id) {
+    public static User getUserById(int id) {
         return userMemDB.get(id);
     }
 
-    public void editUser(User user) {
+    public static void editUser(User user) {
         var dbRecord = userMemDB.stream()
                 .filter(u -> u.getId() == user.getId())
                 .findFirst().orElse(null);

@@ -2,6 +2,8 @@ package com.esteban.kiosk;
 
 import com.esteban.kiosk.model.Order;
 import com.esteban.kiosk.model.OrderStatus;
+import com.esteban.kiosk.service.UserService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -18,10 +20,14 @@ public class KioskApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		UserService.initUserMemDB();
+
 		var or = new Order(1);
 		or.setStatus(OrderStatus.IN_PROGRESS);
 		LOGGER.info(String.format("validate cancel: %1$s", or.validateCancel()));
-		// TODO Auto-generated method stub
+		for (var rec : UserService.getUsers()) {
+			LOGGER.info(String.format("record %2$s: %1$s", rec.toString(), rec.getId()));
+		}
 	}
 
 }
