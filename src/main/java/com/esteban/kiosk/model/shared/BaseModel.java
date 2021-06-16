@@ -1,17 +1,17 @@
 package com.esteban.kiosk.model.shared;
 
 public class BaseModel {
-    private Integer id;
+    private long id;
 
-    public BaseModel(Integer id) {
+    public BaseModel(long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 }

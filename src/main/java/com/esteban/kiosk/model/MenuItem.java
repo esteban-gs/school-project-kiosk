@@ -7,7 +7,7 @@ public class MenuItem extends BaseModel {
     private double price;
     private double taxRate;
 
-    public MenuItem(Integer id) {
+    public MenuItem(long id) {
         super(id);
     }
 

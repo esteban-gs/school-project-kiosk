@@ -6,7 +6,7 @@ public class CookingOption extends BaseModel {
     private String name;
     private boolean available;
 
-    public CookingOption(Integer id, String name) {
+    public CookingOption(long id, String name) {
         super(id);
         this.name = name;
     }

@@ -1,17 +1,34 @@
 package com.esteban.kiosk.model;
 import com.esteban.kiosk.model.shared.BaseModel;
+import com.esteban.kiosk.service.Helper;
 
 import java.util.List;
 
 public class User extends BaseModel {
-    public User(Integer id, String email, String firstName, String lastName) {
+
+    @Override
+    public String toString() {
+        return "{" +
+            " email='" + getEmail() + "'" +
+            ", firstName='" + getFirstName() + "'" +
+            ", lastName='" + getLastName() + "'" +
+            ", mobile='" + getMobile() + "'" +
+            ", emailConfirmed='" + isEmailConfirmed() + "'" +
+            ", addressList='" + getAddressList() + "'" +
+            "}";
+    }
+    public User(long id, String email, String firstName, String lastName) {
         super(id);
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public User(Integer id, String email, String firstName, String lastName, String mobile, boolean emailConfirmed, List<Address> addressList) {
+    public User() {
+        super(Helper.generateUniqueId());
+    }
+
+    public User(long id, String email, String firstName, String lastName, String mobile, boolean emailConfirmed, List<Address> addressList) {
         super(id);
         this.email = email;
         this.firstName = firstName;

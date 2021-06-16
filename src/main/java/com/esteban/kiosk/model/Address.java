@@ -15,9 +15,9 @@ public class Address extends BaseModel {
     private String country;
     private AddressType type;
     private boolean active;
-    private Integer userId; // relational
+    private long userId; // relational
 
-    public Address(Integer id) {
+    public Address(long id) {
         super(id);
     }
 
@@ -85,11 +85,11 @@ public class Address extends BaseModel {
         this.active = active;
     }
 
-    public Integer getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 }

@@ -7,7 +7,7 @@ public class Side extends BaseModel {
     private double price;
     private boolean containsAllergens;
 
-    public Side(Integer id, String name, double price, boolean containsAllergens) {
+    public Side(long id, String name, double price, boolean containsAllergens) {
         super(id);
         this.name = name;
         this.price = price;

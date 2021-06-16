@@ -5,7 +5,7 @@ import com.esteban.kiosk.model.shared.BaseModel;
 public class OrderingDevice extends BaseModel {
     private Integer number;
 
-    public OrderingDevice(Integer id) {
+    public OrderingDevice(long id) {
         super(id);
     }
 

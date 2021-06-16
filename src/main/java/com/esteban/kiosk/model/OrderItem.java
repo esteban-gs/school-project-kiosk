@@ -5,23 +5,24 @@ import com.esteban.kiosk.model.shared.BaseModel;
 import java.util.List;
 
 public class OrderItem extends BaseModel {
-    private Integer menuItemId;
+    private long menuItemId;
     private Integer quantity;
     private double subtotal;
     private OrderItemStatus orderItemStatus;
     private Integer orderCompletionMinutes;
-    private Integer orderId; // relation
+    private long orderId; // relation
     private List<CookingPreference> cookingPreferences;
 
-    public OrderItem(Integer id) {
+    public OrderItem(long id) {
         super(id);
+        setOrderItemStatus(OrderItemStatus.INACTIVE);
     }
 
-    public Integer getMenuItemId() {
+    public long getMenuItemId() {
         return menuItemId;
     }
 
-    public void setMenuItemId(Integer menuItemId) {
+    public void setMenuItemId(long menuItemId) {
         this.menuItemId = menuItemId;
     }
 
@@ -57,11 +58,11 @@ public class OrderItem extends BaseModel {
         this.orderCompletionMinutes = orderCompletionMinutes;
     }
 
-    public Integer getOrderId() {
+    public long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(long orderId) {
         this.orderId = orderId;
     }
 

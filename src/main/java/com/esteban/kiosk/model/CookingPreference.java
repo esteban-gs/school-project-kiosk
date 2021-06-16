@@ -6,10 +6,10 @@ import java.util.List;
 
 public class CookingPreference extends BaseModel {
     private String description;
-    private Integer cookingOptionId; // relational
-    private Integer orderItemId; // relational
+    private long cookingOptionId; // relational
+    private long orderItemId; // relational
 
-    public CookingPreference(Integer id) {
+    public CookingPreference(long id) {
         super(id);
     }
 
@@ -21,22 +21,23 @@ public class CookingPreference extends BaseModel {
         this.description = description;
     }
 
-    public Integer getCookingOptionId() {
+    public long getCookingOptionId() {
         return cookingOptionId;
     }
 
-    public void setCookingOptionId(Integer cookingOptionId) {
+    public void setCookingOptionId(long cookingOptionId) {
         this.cookingOptionId = cookingOptionId;
     }
 
-    public Integer getOrderItemId() {
+    public long getOrderItemId() {
         return orderItemId;
     }
 
-    public void setOrderItemId(Integer orderItemId) {
+    public void setOrderItemId(long orderItemId) {
         this.orderItemId = orderItemId;
     }
 
+    // methods
     public boolean validateAvailableCookingOptions(List<CookingOption> options, CookingPreference cookingPreference) {
         var option = options.stream()
                 .filter(o -> o.getId() == cookingPreference.getCookingOptionId())

@@ -3,26 +3,26 @@ package com.esteban.kiosk.model;
 import com.esteban.kiosk.model.shared.BaseModel;
 
 public class MenuSide extends BaseModel {
-    private Integer sideId; // relation
-    private Integer menuItemId; // relation
+    private long sideId; // relation
+    private long menuItemId; // relation
 
-    public MenuSide(Integer id) {
+    public MenuSide(long id) {
         super(id);
     }
 
-    public Integer getSideId() {
+    public long getSideId() {
         return sideId;
     }
 
-    public void setSideId(Integer sideId) {
+    public void setSideId(long sideId) {
         this.sideId = sideId;
     }
 
-    public Integer getMenuItemId() {
+    public long getMenuItemId() {
         return menuItemId;
     }
 
-    public void setMenuItemId(Integer menuItemId) {
+    public void setMenuItemId(long menuItemId) {
         this.menuItemId = menuItemId;
     }
 }

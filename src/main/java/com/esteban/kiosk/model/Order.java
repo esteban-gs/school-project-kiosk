@@ -6,11 +6,12 @@ public class Order extends BaseModel {
     private Integer number;
     // private Integer paymentId; // not dealing with payment
     private OrderStatus status;
-    private Integer userId;
-    private Integer deviceId;
+    private long userId;
+    private long deviceId;
 
-    public Order(Integer id) {
+    public Order(long id) {
         super(id);
+        this.setStatus(OrderStatus.INACTIVE);
     }
 
     public Integer getNumber() {
@@ -29,25 +30,25 @@ public class Order extends BaseModel {
         this.status = status;
     }
 
-    public Integer getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
-    public Integer getDeviceId() {
+    public long getDeviceId() {
         return deviceId;
     }
 
-    public void setDeviceId(Integer deviceId) {
+    public void setDeviceId(long deviceId) {
         this.deviceId = deviceId;
     }
 
     // methods //
 
-    public void assignOwner(Integer userId) {
+    public void assignOwner(long userId) {
         this.setUserId(userId);
     }
 
