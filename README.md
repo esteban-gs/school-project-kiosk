@@ -12,3 +12,5 @@ Run
 `mvn clean install`
 - Run the JAR: 
 `java -jar target/kiosk-0.0.1-SNAPSHOT.jar`
+- Run the JAR with optional args
+  - `--status=users` -> prints the users table after running the program
