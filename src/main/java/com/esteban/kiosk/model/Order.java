@@ -3,6 +3,16 @@ package com.esteban.kiosk.model;
 import com.esteban.kiosk.model.shared.BaseModel;
 
 public class Order extends BaseModel {
+
+    @Override
+    public String toString() {
+        return "{" +
+            " number='" + getNumber() + "'" +
+            ", status='" + getStatus() + "'" +
+            ", userId='" + getUserId() + "'" +
+            ", deviceId='" + getDeviceId() + "'" +
+            "}";
+    }
     private Integer number;
     // private Integer paymentId; // not dealing with payment
     private OrderStatus status;

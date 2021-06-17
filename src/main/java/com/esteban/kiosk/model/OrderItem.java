@@ -5,6 +5,19 @@ import com.esteban.kiosk.model.shared.BaseModel;
 import java.util.List;
 
 public class OrderItem extends BaseModel {
+
+    @Override
+    public String toString() {
+        return "{" +
+            " menuItemId='" + getMenuItemId() + "'" +
+            ", quantity='" + getQuantity() + "'" +
+            ", subtotal='" + getSubtotal() + "'" +
+            ", orderItemStatus='" + getOrderItemStatus() + "'" +
+            ", orderCompletionMinutes='" + getOrderCompletionMinutes() + "'" +
+            ", orderId='" + getOrderId() + "'" +
+            ", cookingPreferences='" + getCookingPreferences() + "'" +
+            "}";
+    }
     private long menuItemId;
     private Integer quantity;
     private double subtotal;

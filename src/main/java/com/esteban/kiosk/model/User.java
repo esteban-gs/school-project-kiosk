@@ -24,6 +24,10 @@ public class User extends BaseModel {
         this.lastName = lastName;
     }
 
+    public User(long id) {
+        super(id);
+    }
+
     public User() {
         super(Helper.generateUniqueId());
     }

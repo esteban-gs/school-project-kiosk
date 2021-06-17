@@ -3,6 +3,14 @@ package com.esteban.kiosk.model;
 import com.esteban.kiosk.model.shared.BaseModel;
 
 public class CookingOption extends BaseModel {
+
+    @Override
+    public String toString() {
+        return "{" +
+            " name='" + getName() + "'" +
+            ", available='" + isAvailable() + "'" +
+            "}";
+    }
     private String name;
     private boolean available;
 

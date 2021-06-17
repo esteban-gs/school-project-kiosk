@@ -7,6 +7,21 @@ enum AddressType {
     SHIPPING
 }
 public class Address extends BaseModel {
+
+    @Override
+    public String toString() {
+        return "{" +
+            " line1='" + getLine1() + "'" +
+            ", line2='" + getLine2() + "'" +
+            ", city='" + getCity() + "'" +
+            ", state='" + getState() + "'" +
+            ", zip='" + getZip() + "'" +
+            ", country='" + getCountry() + "'" +
+            ", type='" + getType() + "'" +
+            ", active='" + isActive() + "'" +
+            ", userId='" + getUserId() + "'" +
+            "}";
+    }
     private String line1;
     private String line2;
     private String city;

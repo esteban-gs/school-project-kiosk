@@ -3,6 +3,15 @@ package com.esteban.kiosk.model;
 import com.esteban.kiosk.model.shared.BaseModel;
 
 public class Side extends BaseModel {
+
+    @Override
+    public String toString() {
+        return "{" +
+            " name='" + getName() + "'" +
+            ", price='" + getPrice() + "'" +
+            ", containsAllergens='" + isContainsAllergens() + "'" +
+            "}";
+    }
     private String name;
     private double price;
     private boolean containsAllergens;

@@ -5,6 +5,15 @@ import com.esteban.kiosk.model.shared.BaseModel;
 import java.util.List;
 
 public class CookingPreference extends BaseModel {
+
+    @Override
+    public String toString() {
+        return "{" +
+            " description='" + getDescription() + "'" +
+            ", cookingOptionId='" + getCookingOptionId() + "'" +
+            ", orderItemId='" + getOrderItemId() + "'" +
+            "}";
+    }
     private String description;
     private long cookingOptionId; // relational
     private long orderItemId; // relational

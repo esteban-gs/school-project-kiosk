@@ -1,9 +1,9 @@
 package com.esteban.kiosk.service;
 
-import java.time.Instant;
-
 public class Helper {
+    private static long baseUniqueID = 10000;
     public static long generateUniqueId() {
-        return Instant.now().toEpochMilli();
+        baseUniqueID ++;
+        return baseUniqueID;
     }    
 }

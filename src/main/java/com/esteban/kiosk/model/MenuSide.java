@@ -3,6 +3,14 @@ package com.esteban.kiosk.model;
 import com.esteban.kiosk.model.shared.BaseModel;
 
 public class MenuSide extends BaseModel {
+
+    @Override
+    public String toString() {
+        return "{" +
+            " sideId='" + getSideId() + "'" +
+            ", menuItemId='" + getMenuItemId() + "'" +
+            "}";
+    }
     private long sideId; // relation
     private long menuItemId; // relation
 
