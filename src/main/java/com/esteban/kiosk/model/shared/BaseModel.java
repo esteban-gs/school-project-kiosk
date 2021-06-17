@@ -1,6 +1,6 @@
 package com.esteban.kiosk.model.shared;
 
-public class BaseModel {
+public class BaseModel implements IBaseModel{
     private long id;
 
     public BaseModel(long id) {
