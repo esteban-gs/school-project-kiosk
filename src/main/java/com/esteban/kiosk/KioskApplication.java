@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.xml.crypto.Data;
 
 import com.esteban.kiosk.model.*;
-import com.esteban.kiosk.service.DatabaseService;
 import com.esteban.kiosk.service.Initializer;
 
 import org.slf4j.Logger;
@@ -16,7 +14,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import ch.qos.logback.classic.db.names.DBNameResolver;
 
 @SpringBootApplication
 public class KioskApplication implements CommandLineRunner {
