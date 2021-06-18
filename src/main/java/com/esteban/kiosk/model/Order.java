@@ -67,9 +67,11 @@ public class Order extends BaseModel {
     }
 
     public boolean validateCancel() {
-        return this.getStatus() != OrderStatus.CANCELED
-                ? this.getStatus() != OrderStatus.INACTIVE
-                : this.getStatus() != OrderStatus.DELIVERED;
+        return this.getStatus() == OrderStatus.PLACED
+                ? true
+                : this.getStatus() == OrderStatus.IN_PROGRESS
+                ? true
+                : this.getStatus() == OrderStatus.READY_FOR_SERVE;
     }
 
     public void cancel() {

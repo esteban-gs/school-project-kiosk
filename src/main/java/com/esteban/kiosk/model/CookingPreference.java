@@ -47,9 +47,9 @@ public class CookingPreference extends BaseModel {
     }
 
     // methods
-    public boolean validateAvailableCookingOptions(List<CookingOption> options, CookingPreference cookingPreference) {
+    public boolean validateAvailableCookingOptions(List<CookingOption> options) {
         var option = options.stream()
-                .filter(o -> o.getId() == cookingPreference.getCookingOptionId())
+                .filter(o -> o.getId() == this.getCookingOptionId())
                 .findFirst().orElse(null);
         if (option != null) {
             return option.isAvailable();

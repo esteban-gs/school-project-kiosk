@@ -30,13 +30,6 @@ public class KioskApplication implements CommandLineRunner {
 		// Put some seed records
 		Initializer.generateSeed();
 		Initializer.seed();
-		// var or = new Order(1);
-		// or.setStatus(OrderStatus.IN_PROGRESS);
-		// LOGGER.info(String.format("validate cancel: %1$s", or.validateCancel()));
-
-		// var userToUpdate = userServ.getFirstRecord();
-		// userToUpdate.setEmail("TEST@TEST.COM");
-		// userServ.editRecord(userToUpdate);
 
 		// To show status on the console always print DB if argument passed
 		if (argsAsList.contains("--status=users")) {
